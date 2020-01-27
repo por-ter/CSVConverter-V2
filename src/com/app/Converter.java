@@ -51,24 +51,28 @@ public class Converter {
                 arrListHolder.add(lineBuilder + "\n");
             }
 
-//            return arrListHolder;
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             if (csvReader != null) {
                 try {
                     csvReader.close();
                 } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
         return arrListHolder;
     }
 
-    public static void csvToTextConverter(String csvPath, File textSavePath, ArrayList csvAsStringHolder) {        
+    public static void csvToTextConverter(String csvPath, File textSavePath, ArrayList csvAsStringHolder) {   
+        
+        Writer writer = null;
         
         try {
-            Writer writer = null;
+            
             writer = new OutputStreamWriter(new FileOutputStream(textSavePath + ".txt"), StandardCharsets.UTF_8);
 
             for (int cou = 0; cou < csvAsStringHolder.size(); cou++) {
