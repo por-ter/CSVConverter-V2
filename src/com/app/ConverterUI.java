@@ -5,7 +5,11 @@
  */
 package com.app;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -65,11 +69,10 @@ public class ConverterUI extends javax.swing.JFrame {
         jPanel7.setLayout(new java.awt.BorderLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Placeholder bestätigung text");
+        jLabel2.setText("Konvertierung Erfolgreich.");
         jPanel7.add(jLabel2, java.awt.BorderLayout.CENTER);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Platzhalter ist Placeholder");
         jPanel7.add(jLabel6, java.awt.BorderLayout.PAGE_END);
 
         jButton4.setText("OK");
@@ -88,7 +91,7 @@ public class ConverterUI extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(42, 42, 42)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -121,6 +124,7 @@ public class ConverterUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CSV Converter");
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("CSV Datei Wählen"));
 
@@ -272,14 +276,11 @@ public class ConverterUI extends javax.swing.JFrame {
 
         saveChooser.setAcceptAllFileFilterUsed(false);
 
-        // only allow files of .csv extension
+        // only allow files of .txt extension
         FileNameExtensionFilter restrict = new FileNameExtensionFilter(".txt", "txt");
         saveChooser.addChoosableFileFilter(restrict);
 
-        //                String textPath = saveChooser.getSelectedFile();
         int retrieval = saveChooser.showSaveDialog(null);
-
-        //        String csvPath = jLabel3.getText();
 
         if (retrieval == JFileChooser.APPROVE_OPTION) {
 
@@ -287,13 +288,20 @@ public class ConverterUI extends javax.swing.JFrame {
 
             // Dialog box to say erfolgreich?!
             jLabel5.setText("");
-
             jButton2.setEnabled(false);
             
             
+//            String newTextAddressAsString = saveChooser.getSelectedFile().toString() + ".txt";
+//            
+//            boolean checkIfExists = Converter.checkIfFileExists(newTextAddressAsString);
+//            
+//            if(checkIfExists){
+//                
+//            }
+            
             jDialog1.setLocationRelativeTo(App.run);
             jDialog1.setVisible(true);
-
+            
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -323,7 +331,8 @@ public class ConverterUI extends javax.swing.JFrame {
                 //                System.out.println(returnedCSVList.get(i));
                 //            }
 
-//                        jLabel1.setText(csvAbsPath);
+            
+//            jLabel1.setText(csvAbsPath);
             
             jLabel5.setText("<html><center><font colour='green'><strong>Konvertierung erfolgreich</strong>, bitte speichern.</font></center></html>");
             jButton2.setEnabled(true);
@@ -340,44 +349,6 @@ public class ConverterUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-//        try {
-//            
-//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            
-////            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-////                if ("Nimbus".equals(info.getName())) {
-////                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-////                    break;
-////                }
-////            }
-//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ConverterUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-        //</editor-fold>
-        //</editor-fold>
-        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ConverterUI().setVisible(true);
-//            }
-//        });
-        
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ConverterUI().setVisible(true);
-//            }
-//        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -73,7 +73,14 @@ public class Converter {
         
         try {
             
-            writer = new OutputStreamWriter(new FileOutputStream(textSavePath + ".txt"), StandardCharsets.UTF_8);
+            //  + ".txt"
+            String tSP = textSavePath.toString();
+            
+            if(!tSP.endsWith(".txt")){
+                tSP = tSP + ".txt";
+            }
+            
+            writer = new OutputStreamWriter(new FileOutputStream(tSP), StandardCharsets.UTF_8);
 
             for (int cou = 0; cou < csvAsStringHolder.size(); cou++) {
                 writer.write(csvAsStringHolder.get(cou).toString());
@@ -85,6 +92,14 @@ public class Converter {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    public static boolean checkIfFileExists(String fromUser) {        
+        File tempFile = new File(fromUser);
+        
+        boolean exists = tempFile.exists();
+
+        return exists;
     }
 }
 
