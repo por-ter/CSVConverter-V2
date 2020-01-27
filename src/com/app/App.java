@@ -9,6 +9,12 @@ public class App {
 
     public static void main(String[] args) {
         
+        createApp();
+        
+    }
+    
+    public static void createApp() {
+        
         try {
             
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -19,11 +25,14 @@ public class App {
         
         run = new ConverterUI();
         
-        run.setVisible(true);
+        
         java.net.URL iconURL = ClassLoader.getSystemResource("resources/nasdoIcon.png");
 
         ImageIcon icon = new ImageIcon(iconURL);
         run.setIconImage(icon.getImage());
+        
+        
+        run.setVisible(true);
         
     }
 
